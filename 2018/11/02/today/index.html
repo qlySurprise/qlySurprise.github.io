@@ -81,15 +81,12 @@
 <p>if ($request_uri ~<em> “^/$|^/search/.+/|^/company/.+/“) {<br>add_header Cache-Control max-age=3600;<br>}<br>if ($request_uri ~</em> “^/search-suggest/|^/categories/“) {<br>add_header Cache-Control max-age=86400;<br>}<br>expires 的设置方法，增加至主机 conf 文件中：</p>
 <p>location ~ .<em>.(gif|jpg|jpeg|png|bmp|swf)$<br>{<br>expires 30d;<br>}<br>location ~</em> .(ico|gif|jpg|jpeg|png|bmp|swf)(\?[0-9]+)?$<br>{<br>expires max;<br>break;<br>}</p>
 <p>通过 HTTP 的 META 设置 expires 和 cache-control 解决方案：</p>
-<p><meta http-equiv="Cache-Control" content="max-age=7200"></p>
-<meta http-equiv="Expires" content="Mon, 18 Aug 2014 23:00:00 GMT">
-
 <ol>
-<li>【<meta http-equiv="Cache-Control" content="max-age=7200">】</li>
-<li><p>【<meta http-equiv="Expires" content="Mon, 18 Aug 2014 23:00:00 GMT">】<br>expires 用于设定网页的过期时间，也可设置为：</p>
+<li>尖括号 meta http-equiv=”Cache-Control” content=”max-age=7200” /尖括号</li>
+<li><p>尖括号 meta http-equiv=”Expires” content=”Mon, 18 Aug 2014 23:00:00 GMT” /尖括号<br>expires 用于设定网页的过期时间，也可设置为：</p>
 <ol>
-<li>【<meta http-equiv="Cache-Control" content="no-cache">】</li>
-<li>【<meta http-equiv="Expires" content="0">】</li>
+<li>尖括号meta http-equiv=”Cache-Control” CONTENT=”no-cache” /尖括号</li>
+<li>尖括号meta http-equiv=”Expires” content=”0” /尖括号</li>
 </ol>
 </li>
 </ol>
