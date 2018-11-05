@@ -11,8 +11,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="����max-age|expires�����Ż���վ
-��ҳ�Ļ������� HTTP ��Ϣͷ�е� ��Cache-control�� �����Ƶģ�������ȡֵ�� privat,"> 
+    <meta name="description" content="设置max-age|expires进行优化网站
+网页的缓存是由 HTTP 消息头中的 “Cache-control” 来控制的，常见的取值有 private、no-cache、max-age、mus,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -48,47 +48,47 @@
         <div class="stuff">
             <span>十一月 02, 2018</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/֪ʶ�ʼ�/">֪ʶ�ʼ�</a></li></ul>
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/知识笔记/">知识笔记</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>����max-age|expires�����Ż���վ</p>
-<p>��ҳ�Ļ������� HTTP ��Ϣͷ�е� ��Cache-control�� �����Ƶģ�������ȡֵ�� private��no-cache��max-age��must-revalidate �ȣ�Ĭ��Ϊprivate�������ø��ݲ�ͬ������������ʽ��Ϊ���¼���������</p>
-<p>��1�� �����´���</p>
-<p>����ָ��cache-control��ֵΪprivate��no-cache��must-revalidate����ô�����´��ڷ���ʱ�������·��ʷ�������������ָ����max-ageֵ����ô�ڴ�ֵ�ڵ�ʱ�����Ͳ������·��ʷ����������磺</p>
-<p>Cache-control: max-age=5<br>��ʾ�����ʴ���ҳ����5�����ٴη��ʲ���ȥ��������</p>
-<p>��2�� �ڵ�ַ���س�</p>
-<p>����ֵΪprivate��must-revalidate��������˵�Ĳ�һ��������ֻ�е�һ�η���ʱ�����ʷ��������Ժ��Ͳ��ٷ��ʡ�����ֵΪno-cache����ôÿ�ζ������ʡ�����ֵΪmax-age�����ڹ���֮ǰ�����ظ����ʡ�</p>
-<p>��3�� �����˰�Ť</p>
-<p>����ֵΪprivate��must-revalidate��max-age���򲻻��ط��ʣ�������Ϊno-cache����ÿ�ζ��ظ�����</p>
-<p>��4�� ��ˢ�°�Ť</p>
-<p>����Ϊ��ֵ�������ظ�����</p>
-<p>��ָ��Cache-controlֵΪ��no-cache��ʱ�����ʴ�ҳ�治����Internet��ʱ���¼�����ҳ�汸�ݡ�</p>
-<p>���⣬ͨ��ָ����Expires��ֵҲ��Ӱ�쵽���档���磬ָ��ExpiresֵΪһ�����ѹ�ȥ��ʱ�䣬��ô���ʴ���ʱ���ظ��ڵ�ַ�����س�����ôÿ�ζ����ظ����ʣ�</p>
+            <p>设置max-age|expires进行优化网站</p>
+<p>网页的缓存是由 HTTP 消息头中的 “Cache-control” 来控制的，常见的取值有 private、no-cache、max-age、must-revalidate 等，默认为private。其作用根据不同的重新浏览方式分为以下几种情况：</p>
+<p>（1） 打开新窗口</p>
+<p>如果指定cache-control的值为private、no-cache、must-revalidate，那么打开新窗口访问时都会重新访问服务器。而如果指定了max-age值，那么在此值内的时间里就不会重新访问服务器，例如：</p>
+<p>Cache-control: max-age=5<br>表示当访问此网页后的5秒内再次访问不会去服务器。</p>
+<p>（2） 在地址栏回车</p>
+<p>如果值为private或must-revalidate（和网上说的不一样），则只有第一次访问时会访问服务器，以后就不再访问。如果值为no-cache，那么每次都会访问。如果值为max-age，则在过期之前不会重复访问。</p>
+<p>（3） 按后退按扭</p>
+<p>如果值为private、must-revalidate、max-age，则不会重访问，而如果为no-cache，则每次都重复访问</p>
+<p>（4） 按刷新按扭</p>
+<p>无论为何值，都会重复访问</p>
+<p>当指定Cache-control值为“no-cache”时，访问此页面不会在Internet临时文章夹留下页面备份。</p>
+<p>另外，通过指定“Expires”值也会影响到缓存。例如，指定Expires值为一个早已过去的时间，那么访问此网时若重复在地址栏按回车，那么每次都会重复访问：</p>
 <p>Expires: Fri, 31 Dec 1999 16:00:00 GMT</p>
-<p>��ASP�У�����ͨ��Response������Expires��ExpiresAbsolute���Կ���Expiresֵ��ͨ��Response������CacheControl���Կ���Cache-control��ֵ�����磺</p>
-<p>Response.ExpiresAbsolute = #2000-1-1# ‘ ָ�����ԵĹ���ʱ�䣬����ʱ���õ��Ƿ���������ʱ�䣬�ᱻ�Զ�ת��ΪGMTʱ��<br>Response.Expires = 20  ‘ ָ�����ԵĹ���ʱ�䣬�Է���Ϊ��λ����ʾ�ӵ�ǰʱ���������ٷ��ӹ��ڡ�<br>Response.CacheControl = “no-cache”<br>Expiresֵ�ǿ���ͨ����Internet��ʱ�ļ����в鿴��ʱ�ļ������Կ����ġ�</p>
-<p>Apache ��������������</p>
-<p>Apache ���û�������ͨ�� mod_headers ģ���޸� cache-control ��ʵ�֡�</p>
-<p>header set cache-control “max-age=”3600”��<br>mod_expires ʵ����</p>
-<p>&lt;Directory /opt&gt;<br>ExpiresActive On<br>ExpiresDefault “accesss plus 3600 seconds”   ������1��,����Ҳ��seconds<br>ExpiresByType application/octet-stream “accesss plus 1 months”  ���Ƕ������ļ�����bin����1����</p>
-<filesmatch ^data.swf$=""> ����optĿ¼��data.swf����Expireֵ<br>ExpiresActive On<br>ExpiresDefault “accesss plus 60 seconds”<br></filesmatch><br><br>mod_headers ʵ����<br><br>&lt;Directory /opt&gt;<br>header set cache-control “max-age=3600”<br><filesmatch ^data.swf$=""><br>header set cache-control “max-age=60”<br></filesmatch><br><br><filesmatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$"=""><br>Header set Cache-Control “max-age=2592000”<br></filesmatch>
+<p>在ASP中，可以通过Response对象的Expires、ExpiresAbsolute属性控制Expires值；通过Response对象的CacheControl属性控制Cache-control的值，例如：</p>
+<p>Response.ExpiresAbsolute = #2000-1-1# ‘ 指定绝对的过期时间，这个时间用的是服务器当地时间，会被自动转换为GMT时间<br>Response.Expires = 20  ‘ 指定相对的过期时间，以分钟为单位，表示从当前时间起过多少分钟过期。<br>Response.CacheControl = “no-cache”<br>Expires值是可以通过在Internet临时文件夹中查看临时文件的属性看到的。</p>
+<p>Apache 主机解决方案：</p>
+<p>Apache 设置缓存可以通过 mod_headers 模块修改 cache-control 来实现。</p>
+<p>header set cache-control “max-age=”3600”。<br>mod_expires 实例：</p>
+<p>&lt;Directory /opt&gt;<br>ExpiresActive On<br>ExpiresDefault “accesss plus 3600 seconds”   如果是1秒,后面也是seconds<br>ExpiresByType application/octet-stream “accesss plus 1 months”  这是对特殊文件类型bin缓存1个月</p>
+<filesmatch ^data.swf$=""> 针对opt目录下data.swf设置Expire值<br>ExpiresActive On<br>ExpiresDefault “accesss plus 60 seconds”<br></filesmatch><br><br>mod_headers 实例：<br><br>&lt;Directory /opt&gt;<br>header set cache-control “max-age=3600”<br><filesmatch ^data.swf$=""><br>header set cache-control “max-age=60”<br></filesmatch><br><br><filesmatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$"=""><br>Header set Cache-Control “max-age=2592000”<br></filesmatch>
 
 
-<p>Nginx ��������������</p>
-<p>Nginx �� ngx_http_headers_module ģ�����Զ� Cache-Control ͷ���صĶ����������ã����磺</p>
-<p>if ($request_uri ~<em> “^/$|^/search/.+/|^/company/.+/“) {<br>add_header Cache-Control max-age=3600;<br>}<br>if ($request_uri ~</em> “^/search-suggest/|^/categories/“) {<br>add_header Cache-Control max-age=86400;<br>}<br>expires �����÷��������������� conf �ļ��У�</p>
+<p>Nginx 主机解决方案：</p>
+<p>Nginx 的 ngx_http_headers_module 模块可以对 Cache-Control 头相关的东西进行配置，例如：</p>
+<p>if ($request_uri ~<em> “^/$|^/search/.+/|^/company/.+/“) {<br>add_header Cache-Control max-age=3600;<br>}<br>if ($request_uri ~</em> “^/search-suggest/|^/categories/“) {<br>add_header Cache-Control max-age=86400;<br>}<br>expires 的设置方法，增加至主机 conf 文件中：</p>
 <p>location ~ .<em>.(gif|jpg|jpeg|png|bmp|swf)$<br>{<br>expires 30d;<br>}<br>location ~</em> .(ico|gif|jpg|jpeg|png|bmp|swf)(\?[0-9]+)?$<br>{<br>expires max;<br>break;<br>}</p>
-<p>ͨ�� HTTP �� META ���� expires �� cache-control ����������</p>
+<p>通过 HTTP 的 META 设置 expires 和 cache-control 解决方案：</p>
 <p><meta http-equiv="Cache-Control" content="max-age=7200"></p>
-<p><meta http-equiv="Expires" content="Mon, 18 Aug 2014 23:00:00 GMT"><br>expires �����趨��ҳ�Ĺ���ʱ�䣬Ҳ������Ϊ��</p>
+<p><meta http-equiv="Expires" content="Mon, 18 Aug 2014 23:00:00 GMT"><br>expires 用于设定网页的过期时间，也可设置为：</p>
 <p><meta http-equiv="Cache-Control" content="no-cache"></p>
 <meta http-equiv="Expires" content="0">
 
 
-<p>CSS ��ͼƬ�����弰 JS �� max_age ����������</p>
-<p>background-image:url(sprite/bg.png?max_age=31536000&amp;d=05231747)<br>��ʽΪ?d=����Сʱ���ӣ������ļ��������ơ�</p>
+<p>CSS 中图片、字体及 JS 的 max_age 解决方案：</p>
+<p>background-image:url(sprite/bg.png?max_age=31536000&amp;d=05231747)<br>格式为?d=月日小时分钟，其他文件如此类推。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
