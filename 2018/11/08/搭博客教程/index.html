@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="设置max-age|expires进行优化网站
+网页的缓存是由 HTTP 消息头中的 “Cache-control” 来控制的，常见的取值有 private、no-cache、max-age、mus,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">搭博客教程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">搭博客教程</h1>
+        <div class="stuff">
+            <span>十一月 08, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>相关步骤：</p>
+<p>1、安装Node.js和配置好Node.js环境，打开cmd命令行，成功界面如下<br> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021222335756-1508643846.png" alt=""></p>
+<p> 2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择</p>
+<p>  <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021222542474-1351750125.png" alt=""></p>
+<p>注意：一般出于安全考虑，只有在Git Bash Here中才能进行Git的相关操作。如果需要在cmd命令行里调用Git，那么就要配置电脑的环境变量Path，或者在安装的时候选择use Git from the Windows Command Prompt。这个可有可无，影响不大，成功配置的界面如图<br> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021223101193-1524328031.png" alt=""></p>
+<p> 3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021223639881-1998790649.png" alt=""></p>
+<p>在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，你会看到那边有个网址，访问它，你将会惊奇的发现该项目已经被部署到网络上，能够通过外网来访问它。 </p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021223928802-1978574025.png" alt=""></p>
+<p> 4、安装Hexo，在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面<br> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021224442443-1196707159.png" alt=""></p>
+<p>输入npm install hexo -g，开始安装Hexo</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021224910568-2096615217.png" alt=""></p>
+<p>输入hexo -v，检查hexo是否安装成功<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021225015224-1426206003.png" alt=""></p>
+<p>输入hexo init，初始化该文件夹（有点漫长的等待。。。）<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021230203912-509196411.png" alt=""></p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021230241646-1660449756.png" alt=""></p>
+<p>看到后面的“Start blogging with Hexo！”，激动有木有！！！！！</p>
+<p>输入npm install，安装所需要的组件<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021231521646-1099473727.png" alt=""></p>
+<p>输入hexo g，首次体验Hexo</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021231705474-1404994153.png" alt=""></p>
+<p> 输入hexo s，开启服务器，访问该网址，正式体验Hexo</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021231833912-663774637.png" alt=""><br>问题：假如页面一直无法跳转，那么可能端口被占用了。此时我们ctrl+c停止服务器，接着输入“hexo server -p 端口号”来改变端口号</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021232311912-1198771378.png" alt=""></p>
+<p>那么出现如下图就成功了</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021232413224-1288183746.png" alt=""></p>
+<p> 5、将Hexo与Github page联系起来，设置Git的user name和email（如果是第一次的话）</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021233157224-1386748377.png" alt=""></p>
+<p>上图是在其文件夹里面鼠标右键，点击Git Base Here。这里“feng”可以替换成自己的用户名，邮箱可以替换成自己的邮箱</p>
+<p>输入cd ~/.ssh，检查是否由.ssh的文件夹<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021233543052-76995831.png" alt=""></p>
+<p>输入ls，列出该文件下的内容。下图说明存在</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021233630568-279882178.png" alt=""></p>
+<p> 输入ssh-keygen -t rsa -C “<a href="mailto:929762930@qq.com" target="_blank" rel="noopener">929762930@qq.com</a>”，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：C:\Users\Administrator.ssh）。</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021234107209-1205335399.png" alt=""></p>
+<p> 输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021234314146-695835137.png" alt=""></p>
+<p> 再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021234528552-610835964.png" alt=""></p>
+<p> 登录Github，点击头像下的settings，添加ssh<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021234636834-426105098.png" alt=""></p>
+<p>新建一个new ssh key，将id_rsa.pub文件里的内容复制上去<br><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021234906724-1938556332.png" alt=""></p>
+<p>输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021235116271-1521882533.png" alt=""></p>
+<p>问题：假如ssh-key配置失败，那么只要以下步骤就能完全解决</p>
+<p>首先，清除所有的key-pair<br>ssh-add -D<br>rm -r ~/.ssh<br>删除你在github中的public-key</p>
+<p>重新生成ssh密钥对<br>ssh-keygen -t rsa -C “<a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a>“</p>
+<p>接下来正常操作<br>在github上添加公钥public-key:<br>1、首先在你的终端运行 xclip -sel c ~/.ssh/id_rsa.pub将公钥内容复制到剪切板<br>2、在github上添加公钥时，直接复制即可<br>3、保存</p>
+<p>测试：<br>在终端 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<p>6、配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021235812974-84318377.png" alt=""></p>
+<p>repo值是你在github项目里的ssh（右下角）</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171021235722365-818312042.png" alt=""></p>
+<p>7、新建一篇博客，在cmd执行命令：hexo new post “博客名”</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171022000227834-1991784353.png" alt=""></p>
+<p> 这时候在文件夹_posts目录下将会看到已经创建的文件</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171022000508865-46787156.png" alt=""></p>
+<p>在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171022001237943-657272339.png" alt=""></p>
+<p>使用编辑器编好文章，那么就可以使用命令：hexo d -g，生成以及部署了</p>
+<p> <img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171022001410662-1611125904.png" alt=""></p>
+<p>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
+<p><img src="https://images2017.cnblogs.com/blog/1108615/201710/1108615-20171022001738037-1195721153.png" alt=""></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
