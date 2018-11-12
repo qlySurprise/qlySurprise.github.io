@@ -14,7 +14,7 @@
     <meta name="description" content="jquery.form.js使用指南(官网地址：http://jquery.malsup.com/form/)
 1在页面中添加表单。只是一个普通的表格，不需要特殊的标记：
 .1 
-.2       ,"> 
+.2     &amp;l,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -60,12 +60,12 @@
     Comment: <textarea name="comment"></textarea>
     <input type="submit" value="Submit Comment" />
 </form>--></p>
-<p>.2 <!--<form action="/misc/qrCode/upload" id="qrCodeForm" enctype="multipart/form-data" method="post">
-            <p style="padding-top: 19px;padding-left: 14px;">文件:<input style="display: inline-block" type="file" name="fileContent"     id="fileContent"></p>
-            <input type="text" name="naame" id="naame">
-            <input hidden type="text" name="id" id="tid">
-        <#--<input class="floatRt btn btn-success" type="button" name="b1" value="上传" onclick="fsubmit()">--><br>            <button type="button" class="btn btn-primary btn-sm" id="submit"><i class="fa fa-save"></i>上传<br>            </button><br>        –&gt;</p>
-<p>  js:   $(“#submit”).click(function () {<br>        $(“#qrCodeForm”).ajaxSubmit({<br>//            url: ‘/misc/qrCode/upload’,<br>//            type: ‘POST’,<br>            contentType: “application/x-www-form-urlencoded; charset=utf-8”,<br>            cache: false,<br>            processData: false,  //不处理发送的数据，因为data值是FormData对象，不需要对数据做处理<br>            contentType: false, //不设置Content-type请求头<br>            success: function () {<br>                $(‘.fileSubmit’).hide();<br>                $(‘.view’).hide();<br>                console.log(‘000’)<br>                $(“#searchTel”).click();<br>            },<br>            error: function () {</p>
+<p>.2     &lt;!–<form action="/misc/qrCode/upload" id="qrCodeForm" enctype="multipart/form-data" method="post"><br>            <p style="padding-top: 19px;padding-left: 14px;">文件:<input style="display: inline-block" type="file" name="fileContent" id="fileContent"></p><br>            <input type="text" name="naame" id="naame"><br>            <input hidden type="text" name="id" id="tid"></form></p>
+<pre><code>    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot; id=&quot;submit&quot;&gt;&lt;i
+            class=&quot;fa fa-save&quot;&gt;&lt;/i&gt;上传
+    &lt;/button&gt;
+&lt;/form&gt;--&gt;
+</code></pre><p>  js:   $(“#submit”).click(function () {<br>        $(“#qrCodeForm”).ajaxSubmit({<br>//            url: ‘/misc/qrCode/upload’,<br>//            type: ‘POST’,<br>            contentType: “application/x-www-form-urlencoded; charset=utf-8”,<br>            cache: false,<br>            processData: false,  //不处理发送的数据，因为data值是FormData对象，不需要对数据做处理<br>            contentType: false, //不设置Content-type请求头<br>            success: function () {<br>                $(‘.fileSubmit’).hide();<br>                $(‘.view’).hide();<br>                console.log(‘000’)<br>                $(“#searchTel”).click();<br>            },<br>            error: function () {</p>
 <pre><code>        }
     })
 });
