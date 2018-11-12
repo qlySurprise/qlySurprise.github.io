@@ -11,9 +11,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content=" 钻石VIP                     白金VIP                     银卡VIP
-
- 点字也能选中： 只需使lable for 指向对应的id即可 点击不串行： ,"> 
+    <meta name="description" content="jquery.form.js使用指南(官网地址：http://jquery.malsup.com/form/)
+1在页面中添加表单。只是一个普通的表格，不需要特殊的标记：
+.1 
+.2       ,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -68,7 +69,26 @@
 <pre><code>        }
     })
 });
-</code></pre>
+</code></pre><p>参数：ajaxSubmit接受0个或1个参数。这个单个的参数既可以是一个回调函数，也可以是一个Options对象。        </p>
+<p> Options对象 </p>
+<p>ajaxForm和ajaxSubmit都支持众多的选项参数，这些选项参数可以使用一个Options对象来提供。Options只是一个JavaScript对象，它包含了如下一些属性与值的集合： </p>
+<p>target<br>指明页面中由服务器响应进行更新的元素。元素的值可能被指定为一个jQuery选择器字符串，一个jQuery对象，或者一个DOM元素。<br>默认值：null。 </p>
+<p>url<br>指定提交表单数据的URL。<br>默认值：表单的action属性值 </p>
+<p>type<br>指定提交表单数据的方法（method）：“GET”或“POST”。<br>默认值：表单的method属性值（如果没有找到默认为“GET”）。 </p>
+<p>beforeSubmit<br>表单提交前被调用的回调函数。“beforeSubmit”回调函数作为一个钩子（hook），被提供来运行预提交逻辑或者校验表单数据。如果“beforeSubmit”回调函数返回false，那么表单将不被提交。“beforeSubmit”回调函数带三个调用参数：数组形式的表单数据，jQuery表单对象，以及传入ajaxForm/ajaxSubmit中的Options对象。表单数组接受以下方式的数据：<br>[ { name: ‘username’, value: ‘jresig’ }, { name: ‘password’, value: ‘secret’ } ]<br>默认值：null </p>
+<p>success<br>表单成功提交后调用的回调函数。如果提供“success”回调函数，当从服务器返回响应后它被调用。然后由dataType选项值决定传回responseText还是responseXML的值。<br>默认值：null </p>
+<p>dataType<br>期望返回的数据类型。null、“xml”、“script”或者“json”其中之一。dataType提供一种方法，它规定了怎样处理服务器的响应。这个被直接地反映到jQuery.httpData方法中去。下面的值被支持：<br>‘xml’：如果dataType == ‘xml’，将把服务器响应作为XML来对待。同时，如果“success”回调方法被指定， 将传回responseXML值。<br>‘json’：如果dataType == ‘json’， 服务器响应将被求值，并传递到“success”回调方法，如果它被指定的话。<br>‘script’：如果dataType == ‘script’， 服务器响应将求值成纯文本。<br>默认值：null（服务器返回responseText值） </p>
+<p>resetForm<br>布尔标志，表示如果表单提交成功是否进行重置。<br>Default value: null </p>
+<p>clearForm<br>布尔标志，表示如果表单提交成功是否清除表单数据。<br>默认值：null </p>
+<p>参数小结一下：<br>target        返回的结果将放到这个target下<br>url           如果定义了，将覆盖原form的action<br>type          get和post两种方式<br>dataType      返回的数据类型，可选：json、xml、script<br>clearForm     true，表示成功提交后清除所有表单字段值<br>resetForm     true，表示成功提交后重置所有字段<br>iframe        如果设置，表示将使用iframe方式提交表单<br>beforeSerialize    数据序列化前：function($form,options){}<br>beforeSubmit  提交前：function(arr,$from,options){}<br>success       提交成功后：function(data,statusText){}<br>error         错误：function(data){alert(data.message);} </p>
+<p>3、jquery.form.js除了以上核心api外，还有几个不可缺少的辅助api</p>
+<p>formSerialize<br>将表单串行化（或序列化）成一个查询字符串。这个方法将返回以下格式的字符串：name1=value1&amp;name2=value2。<br>可链接（Chainable）：不能， 这个方法返回一个字符串。<br>实例：<br>var queryString = $(‘#myFormId’).formSerialize();  </p>
+<p>fieldSerialize<br>将表单的字段元素串行化（或序列化）成一个查询字符串。当只有部分表单字段需要进行串行化（或序列化）时，这个就方便了。这个方法将返回以下格式的字符串：name1=value1&amp;name2=value2。<br>可链接（Chainable）：不能，这个方法返回一个字符串。<br>实例：<br>var queryString = $(‘#myFormId .specialFields’).fieldSerialize();  </p>
+<p>fieldValue<br>返回匹配插入数组中的表单元素值。从0.91版起，该方法将总是以数组的形式返回数据。如果元素值被判定可能无效，则数组为空，否则它将包含一个或多于一个的元素值。<br>可链接（Chainable）：不能，该方法返回数组。<br>实例：<br>var value = $(‘#myFormId :password’).fieldValue();<br>alert(‘The password is: ‘ + value[0]);   </p>
+<p>resetForm<br>通过调用表单元素原有的DOM方法，将表单恢复到初始状态。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId’).resetForm();  </p>
+<p>clearForm<br>清除表单元素。该方法将所有的文本（text）输入字段、密码（password）输入字段和文本区域（textarea）字段置空，清除任何select元素中的选定，以及将所有的单选（radio）按钮和多选（checkbox）按钮重置为非选定状态。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId’).clearForm();  </p>
+<p>clearFields<br>清除字段元素。只有部分表单元素需要清除时才方便使用。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId .specialFields’).clearFields();  </p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
