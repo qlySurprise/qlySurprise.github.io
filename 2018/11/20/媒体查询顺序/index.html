@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">死亡僚机</h3>
+    <h3 class="subtitle">媒体查询条件判断顺序</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,14 +43,17 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">死亡僚机</h1>
+        <h1 class="title">媒体查询条件判断顺序</h1>
         <div class="stuff">
-            <span>十一月 12, 2016</span>
+            <span>十一月 20, 2018</span>
             
 
         </div>
         <div class="content markdown">
-            <h1>你终于来了</h1>
+            <p>当判断最小的值，并且从小到大进行判断（当满足条件的时候）；<br>1、向上兼容：如果设置了宽度更小时的样式，默认这些样式也会传递到宽度更大的条件范围；<br>2、向下覆盖：宽度更大的样式会将前面宽度更小的样式覆盖。</p>
+<p>书写建议：<br>1、如果判断最小值(min-width)，那么就应该从小到大写</p>
+<p>从小到大<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (min-width: 320px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 375px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>从大到小<br>2、如果判断最大值(max-width)，那么就应该从大到小写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width: 375px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 320px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
