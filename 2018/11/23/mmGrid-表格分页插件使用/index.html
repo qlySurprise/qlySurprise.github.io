@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="1234567891011var u = navigator.userAgent;if (u.indexOf(&amp;apos;Android&amp;apos;) &amp;gt; -1 || u.indexOf(&amp;a,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">mmGrid 表格分页插件使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">mmGrid 表格分页插件使用</h1>
+        <div class="stuff">
+            <span>十一月 23, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>引入页面所需js、css插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;adminlte/dist/js/mmgrid.util11.js&quot;&gt;&lt;/script&gt; （原文件是mmgrid.util.js）</span><br><span class="line">&lt;script src=&quot;adminlte/plugins/mmgrid/mmPaginator.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;adminlte/plugins/mmgrid/mmGrid.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>HTML部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box-body&quot;&gt;</span><br><span class="line">                   &lt;div class=&quot;jqGrid_wrapper&quot;&gt;</span><br><span class="line">                       &lt;table id=&quot;tableMetadata-1&quot; class=&quot;mmg&quot;&gt;&lt;/table&gt;</span><br><span class="line">                       &lt;div id=&quot;paginatorMetadata-1&quot; style=&quot;text-align: right;&quot;&gt;&lt;/div&gt;</span><br><span class="line">                   &lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>JS部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">    var cols = [</span><br><span class="line">        &#123;title: &apos;序列号&apos;, name: &apos;id&apos;, width: 40, align: &apos;left&apos;&#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;资源类型&apos;, name: &apos;type&apos;, width: 40, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val == &quot;1&quot;) &#123;</span><br><span class="line">                return &quot;图文&quot;;</span><br><span class="line">            &#125; else if (val == &quot;2&quot;) &#123;</span><br><span class="line">                return &quot;PDF&quot;;</span><br><span class="line">            &#125; else if (val == &quot;3&quot;) &#123;</span><br><span class="line">                return &quot;图片&quot;;</span><br><span class="line">            &#125; else if (val == &quot;4&quot;) &#123;</span><br><span class="line">                return &quot;MP4&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;title: &apos;标题&apos;, name: &apos;name&apos;, width: 200, align: &apos;left&apos;&#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;文件大小&apos;, name: &apos;filelength&apos;, width: 60, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val != null &amp;&amp; val != &apos;&apos;) &#123;</span><br><span class="line">                return val + &quot;KB&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;绑定标签&apos;, name: &apos;labels&apos;, width: 100, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val != null &amp;&amp; val != &apos;&apos;) &#123;</span><br><span class="line">                return val;</span><br><span class="line">            &#125;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;操作&apos;, name: &apos;&apos;, width: 300, align: &apos;center&apos;, lockWidth: true, lockDisplay: true,</span><br><span class="line">            renderer: function (val, item) &#123;</span><br><span class="line">                return &apos;&lt;button  class=&quot;btn btn-info&quot; onclick=&quot;showEdit(&apos; + item.id + &apos;,&apos; + item.type + &apos;)&quot;&gt;编辑&lt;/button&gt;&amp;nbsp;&amp;nbsp;&apos;</span><br><span class="line">                        + &apos;&lt;button  class=&quot;btn btn-danger&quot; onclick=&quot;deleteObj(&apos; + item.id + &apos;);&quot;&gt;删除&lt;/button&gt;&apos;</span><br><span class="line">//                        + &apos;&lt;button  class=&quot;btn btn-primary&quot; onclick=&quot;putTop(&apos; + item.id + &apos;)&quot;&gt;置顶&lt;/button&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ];</span><br><span class="line">    var tabGrid = Util.initGrid(&apos;/misc/metadata/listPage&apos;, cols, false, false, false);</span><br><span class="line">    Util.initParams(tabGrid, &quot;searchFormMetadata&quot;);</span><br><span class="line">    tabGrid.load();</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
