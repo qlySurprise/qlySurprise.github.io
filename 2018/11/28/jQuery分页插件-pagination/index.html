@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一、前言：
+分页功能在项目中时常用到，一款可以快速实现分页功能的插件非常有必要，pagination–这款插件功能非常完美
+二、具体使用方法：
+（1）第一步，导入jquery和pagination.,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">jQuery分页插件--pagination</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">jQuery分页插件--pagination</h1>
+        <div class="stuff">
+            <span>十一月 28, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一、前言：</p>
+<p>分页功能在项目中时常用到，一款可以快速实现分页功能的插件非常有必要，pagination–这款插件功能非常完美</p>
+<p>二、具体使用方法：</p>
+<p>（1）第一步，导入jquery和pagination.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;jquery.pagination.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>（2）第二步，HTML代码：</p>
+<p>非常简单只需要一个div标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;M-box&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>（3）第三步,  JS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.M-box&apos;).pagination(&#123;</span><br><span class="line">    pageCount:50,</span><br><span class="line">    jump:true,</span><br><span class="line">    coping:true,</span><br><span class="line">    homePage:&apos;首页&apos;,</span><br><span class="line">    endPage:&apos;末页&apos;,</span><br><span class="line">    prevContent:&apos;上页&apos;,</span><br><span class="line">    nextContent:&apos;下页&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>三、核心参数方法</p>
+<p>使用方法是：</p>
+<p>$(‘.M-box’).pagination({option})<br>option的参数如下:</p>
+<p>pageCount    9    总页数<br>totalData    0    数据总条数<br>current    1    当前第几页<br>showData    0    每页显示的条数<br>prevCls    ‘prev’    上一页class<br>nextCls    ‘next’    下一页class<br>prevContent    ‘&lt;’    上一页节点内容<br>nextContent    ‘&gt;’    下一页节点内容<br>activeCls    ‘active’    当前页选中状态class名<br>count    3    当前选中页前后页数<br>coping    false    是否开启首页和末页，值为boolean<br>isHide    false    总页数为0或1时隐藏分页控件<br>keepShowPN    false    是否一直显示上一页下一页<br>homePage    ‘’    首页节点内容，默认为空<br>endPage    ‘’    尾页节点内容，默认为空<br>jump    false    是否开启跳转到指定页数，值为boolean类型<br>jumpIptCls    ‘jump-ipt’    文本框内容<br>jumpBtnCls    ‘jump-btn’    跳转按钮class<br>jumpBtn    ‘跳转’    跳转按钮文本内容<br>callback    function(){}    回调函数，参数”index”为当前页</p>
+<p>其中回调函数是最核心的参数，即点击分页的数字按钮时所执行的操作，回调函数中有一个参数叫api</p>
+<p>callback:function(api){</p>
+<p>//回调函数。。。</p>
+<p>}</p>
+<p>该api接口的方法有如下：</p>
+<p>方法                                参数                           说明</p>
+<p>getPageCount()               无                         获取总页数</p>
+<p>setPageCount(page)      page：页数           设置总页数</p>
+<p>getCurrent()                    无                           获取当前页</p>
+<p>filling()                             无                         填充数据，参数为页数</p>
+<p>四、AJAX动态分页</p>
+<p>其实做分页最主要的就是通过AJAX来动态获取数据后进行分页显示，我们要明白的是，为什么分页？？</p>
+<p>首页，因为数据库的数据是不可估量的，如果某一个系统的数据库数据有几千条甚至几万条，难道一个网页要把全部的数据都全部的展示出来吗？？那肯定是不合理的，因为这非常消耗系统内存和网络带宽，我们肯定都是在AJAX请求数据时，传入了要显示的条数和页数，服务器在根据条数和页数返回数据给我们，比如我们要显示10条数据，显示第一页的内容，那服务器就相应的把该条件下的数据传回给我们，仅仅10条，这对于数据库和网页显示来说毫无压力。所以这就有了分页功能的出现。如果有50条数据，每页只显示10条数据，那理所当然的就是有5页了，那问题又来了，难道这个分页怎么知道我每个页数需要显示什么内容呢？？？是我全部加载数据后平均分配到每一页10条数据，然后依次显示下去吗？？当然不是，我每当点击页数按钮的时候都要去加载数据，重新发起AJAX请求到服务器，然后返回数据给我们，那我们就大概知道怎么使用这个分页功能了！！</p>
+<p>（1）.首页，你得知道你分页按钮上需要显示几页吗？？例如5页的话就是5个按钮。</p>
+<p>所以首先必须使用AJAX请求得到所有数据的长度是多少，例如：  总共50条数据，我需要每页显示10条数据，当前 显示第一页的数据。</p>
+<p>$.ajax({</p>
+<p>url:…</p>
+<p>type:”post”,</p>
+<p>data:{</p>
+<p>rows:  10  //每页显示10条数据</p>
+<p>page:1  //显示第一页的数据</p>
+<p>}</p>
+<p>success:function(data){</p>
+<p>//data.length  就是数据的长度 ，也就是上面的10，具体参数名看你们服务器的返回叫什么</p>
+<p>//data.count   是数据的总长度，也就是50，具体参数名看你们服务器的返回叫什么</p>
+<p>}</p>
+<p>})</p>
+<p>（2）.然后我在success方法中写入pagination的方法进行分页</p>
+<p>$.ajax({</p>
+<p>url:…</p>
+<p>type:”post”,</p>
+<p>data:{</p>
+<p>rows:  10  //我把行数传回给服务器中</p>
+<p>page:1  //显示第一页的数据</p>
+<p>}</p>
+<p>success:function(data){</p>
+<p>//获取总条数<br>var sumCount=data.count;</p>
+<p>//获取返回的条数</p>
+<p>var count=data.length;</p>
+<p>dom上装载数据  （function）</p>
+<p>//重要的一步来了，需要获取我们按钮的个数，也就是分多少页，需要总条数除以返回数在向上取整</p>
+<p>var pageCount=Math.ceil(sumCount/count);  //这里50除以10等于5，所以一共有5页</p>
+<p>$(‘.M-box’).pagination({<br>               pageCount:pageCount, //总页数<br>               coping:true,//是否开启首页和尾页<br>               homePage:’首页’,<br>               endPage:’末页’,<br>               prevContent:’上页’,<br>               nextContent:’下页’,<br>               current:1,  //当前第几页<br>               callback:function(api){  //按钮、回调函数</p>
+<p>}</p>
+<p>})；</p>
+<p>}</p>
+<p>})</p>
+<p>完整操作 ：<br>（3）.现在最最关键的来了，就是分页中的回调函数的操作，也就是点击按钮需要做什么？？上面第四点中分析到，点击按钮需要重新发起AJAX请求，需要把显示条数和当前的页数传回给服务器</p>
+<p>$.ajax({</p>
+<p>url:…</p>
+<p>type:”post”,</p>
+<p>data:{</p>
+<p>rows:  10  //我把行数传回给服务器中</p>
+<p>page:1  //显示第一页的数据</p>
+<p>}</p>
+<p>success:function(data){</p>
+<p>//获取总条数<br>var sumCount=data.count;</p>
+<p>//获取返回的条数</p>
+<p>var count=data.length;</p>
+<p>dom上装载数据  （function）</p>
+<p>//获取分页数</p>
+<p>var pageCount=Math.ceil(sumCount/count);  //这里50除以10等于5，所以一共有5页</p>
+<p>$(‘.M-box’).pagination({<br>               pageCount:pageCount, //总页数<br>               coping:true,//是否开启首页和尾页<br>               homePage:’首页’,<br>               endPage:’末页’,<br>               prevContent:’上页’,<br>               nextContent:’下页’,<br>               current:1,  //当前第几页<br>               callback:function(api){  //按钮、回调函数</p>
+<p>//再次发起AJAX请求</p>
+<p>$.ajax({</p>
+<p>url:…</p>
+<p>type:”post”,</p>
+<p>data:{</p>
+<p>rows: 10, //依然显示10条数据</p>
+<p>page: api.getCurrent()// 非常关键的一步，这里就要用到api接口的方法中获取当前页</p>
+<p>的方法了，比如我点击第二页，当前页就是2，点击第三页，</p>
+<p>当前页就是3,</p>
+<p>}</p>
+<p>success:function(data){</p>
+<p>//ajax成功后的回调。。。<br>dom上装载数据  （function）<br>}</p>
+<p>})</p>
+<p>}</p>
+<p>})；</p>
+<p>}</p>
+<p>})</p>
+<p>以上基本的一个流程就是这样。</p>
+<p>一个很主要的流程就是，首先要发起ajax得到总条数和返回的条数然后在success回调中使用pagination的方法，在callback回调中再次发起ajax，就是为了点击分页按钮再次显示数据。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
