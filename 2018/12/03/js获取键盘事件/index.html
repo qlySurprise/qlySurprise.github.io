@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hexo</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="1234567891011var u = navigator.userAgent;if (u.indexOf(&amp;apos;Android&amp;apos;) &amp;gt; -1 || u.indexOf(&amp;a,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">'js获取键盘事件'</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">'js获取键盘事件'</h1>
+        <div class="stuff">
+            <span>十二月 03, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>js中获取键盘事件</p>
+<p>  <script type="text/javascript" language="JavaScript" charset="UTF-8"><br>       document.onkeydown=function(event){<br>              var e = event || window.event || arguments.callee.caller.arguments[0];<br>              if(e &amp;&amp; e.keyCode==27){ // 按 Esc<br>                  //要做的事情<br>                }<br>              if(e &amp;&amp; e.keyCode==113){ // 按 F2<br>                  //要做的事情<br>                }<br>              if(e &amp;&amp; e.keyCode==13){ // enter 键<br>                  //要做的事情<br>             }<br>       };<br>  </script><br> 只要你定义了这些键的动作，你在浏览器里按下这些键就会响应，兼容目前所有浏览器。</p>
+<p>  1 js 里面的键盘事件经常用到，所以收集了键盘事件对应的键码来分享下：<br>  2 keyCode 8 = BackSpace BackSpace<br>  3 keyCode 9 = Tab Tab<br>  4 keyCode 12 = Clear<br>  5 keyCode 13 = Enter<br>  6 keyCode 16 = Shift_L<br>  7 keyCode 17 = Control_L<br>  8 keyCode 18 = Alt_L<br>  9 keyCode 19 = Pause<br> 10 keyCode 20 = Caps_Lock<br> 11 keyCode 27 = Escape Escape<br> 12 keyCode 32 = space<br> 13 keyCode 33 = Prior<br> 14 keyCode 34 = Next<br> 15 keyCode 35 = End<br> 16 keyCode 36 = Home<br> 17 keyCode 37 = Left<br> 18 keyCode 38 = Up<br> 19 keyCode 39 = Right<br> 20 keyCode 40 = Down<br> 21 keyCode 41 = Select<br> 22 keyCode 42 = Print<br> 23 keyCode 43 = Execute<br> 24 keyCode 45 = Insert<br> 25 keyCode 46 = Delete<br> 26 keyCode 47 = Help<br> 27 keyCode 48 = 0 equal braceright<br> 28 keyCode 49 = 1 exclam onesuperior<br> 29 keyCode 50 = 2 quotedbl twosuperior<br> 30 keyCode 51 = 3 section threesuperior<br> 31 keyCode 52 = 4 dollar<br> 32 keyCode 53 = 5 percent<br> 33 keyCode 54 = 6 ampersand<br> 34 keyCode 55 = 7 slash braceleft<br> 35 keyCode 56 = 8 parenleft bracketleft<br> 36 keyCode 57 = 9 parenright bracketright<br> 37 keyCode 65 = a A<br> 38 keyCode 66 = b B<br> 39 keyCode 67 = c C<br> 40 keyCode 68 = d D<br> 41 keyCode 69 = e E EuroSign<br> 42 keyCode 70 = f F<br> 43 keyCode 71 = g G<br> 44 keyCode 72 = h H<br> 45 keyCode 73 = i I<br> 46 keyCode 74 = j J<br> 47 keyCode 75 = k K<br> 48 keyCode 76 = l L<br> 49 keyCode 77 = m M mu<br> 50 keyCode 78 = n N<br> 51 keyCode 79 = o O<br> 52 keyCode 80 = p P<br> 53 keyCode 81 = q Q at<br> 54 keyCode 82 = r R<br> 55 keyCode 83 = s S<br> 56 keyCode 84 = t T<br> 57 keyCode 85 = u U<br> 58 keyCode 86 = v V<br> 59 keyCode 87 = w W<br> 60 keyCode 88 = x X<br> 61 keyCode 89 = y Y<br> 62 keyCode 90 = z Z<br> 63 keyCode 96 = KP_0 KP_0<br> 64 keyCode 97 = KP_1 KP_1<br> 65 keyCode 98 = KP_2 KP_2<br> 66 keyCode 99 = KP_3 KP_3<br> 67 keyCode 100 = KP_4 KP_4<br> 68 keyCode 101 = KP_5 KP_5<br> 69 keyCode 102 = KP_6 KP_6<br> 70 keyCode 103 = KP_7 KP_7<br> 71 keyCode 104 = KP_8 KP_8<br> 72 keyCode 105 = KP_9 KP_9<br> 73 keyCode 106 = KP_Multiply KP_Multiply<br> 74 keyCode 107 = KP_Add KP_Add<br> 75 keyCode 108 = KP_Separator KP_Separator<br> 76 keyCode 109 = KP_Subtract KP_Subtract<br> 77 keyCode 110 = KP_Decimal KP_Decimal<br> 78 keyCode 111 = KP_Divide KP_Divide<br> 79 keyCode 112 = F1<br> 80 keyCode 113 = F2<br> 81 keyCode 114 = F3<br> 82 keyCode 115 = F4<br> 83 keyCode 116 = F5<br> 84 keyCode 117 = F6<br> 85 keyCode 118 = F7<br> 86 keyCode 119 = F8<br> 87 keyCode 120 = F9<br> 88 keyCode 121 = F10<br> 89 keyCode 122 = F11<br> 90 keyCode 123 = F12<br> 91 keyCode 124 = F13<br> 92 keyCode 125 = F14<br> 93 keyCode 126 = F15<br> 94 keyCode 127 = F16<br> 95 keyCode 128 = F17<br> 96 keyCode 129 = F18<br> 97 keyCode 130 = F19<br> 98 keyCode 131 = F20<br> 99 keyCode 132 = F21<br>100 keyCode 133 = F22<br>101 keyCode 134 = F23<br>102 keyCode 135 = F24<br>103 keyCode 136 = Num_Lock<br>104 keyCode 137 = Scroll_Lock<br>105 keyCode 187 = acute grave<br>106 keyCode 188 = comma semicolon<br>107 keyCode 189 = minus underscore<br>108 keyCode 190 = period colon<br>109 keyCode 192 = numbersign apostrophe<br>110 keyCode 210 = plusminus hyphen macron<br>111 keyCode 211 =<br>112 keyCode 212 = copyright registered<br>113 keyCode 213 = guillemotleft guillemotright<br>114 keyCode 214 = masculine ordfeminine<br>115 keyCode 215 = ae AE<br>116 keyCode 216 = cent yen<br>117 keyCode 217 = questiondown exclamdown<br>118 keyCode 218 = onequarter onehalf threequarters<br>119 keyCode 220 = less greater bar<br>120 keyCode 221 = plus asterisk asciitilde<br>121 keyCode 227 = multiply division<br>122 keyCode 228 = acircumflex Acircumflex<br>123 keyCode 229 = ecircumflex Ecircumflex<br>124 keyCode 230 = icircumflex Icircumflex<br>125 keyCode 231 = ocircumflex Ocircumflex<br>126 keyCode 232 = ucircumflex Ucircumflex<br>127 keyCode 233 = ntilde Ntilde<br>128 keyCode 234 = yacute Yacute<br>129 keyCode 235 = oslash Ooblique<br>130 keyCode 236 = aring Aring<br>131 keyCode 237 = ccedilla Ccedilla<br>132 keyCode 238 = thorn THORN<br>133 keyCode 239 = eth ETH<br>134 keyCode 240 = diaeresis cedilla currency<br>135 keyCode 241 = agrave Agrave atilde Atilde<br>136 keyCode 242 = egrave Egrave<br>137 keyCode 243 = igrave Igrave<br>138 keyCode 244 = ograve Ograve otilde Otilde<br>139 keyCode 245 = ugrave Ugrave<br>140 keyCode 246 = adiaeresis Adiaeresis<br>141 keyCode 247 = ediaeresis Ediaeresis<br>142 keyCode 248 = idiaeresis Idiaeresis<br>143 keyCode 249 = odiaeresis Odiaeresis<br>144 keyCode 250 = udiaeresis Udiaeresis<br>145 keyCode 251 = ssharp question backslash<br>146 keyCode 252 = asciicircum degree<br>147 keyCode 253 = 3 sterling<br>148 keyCode 254 = Mode_switch<br>149 使用event对象的keyCode属性判断输入的键值<br>150 eg：if(event.keyCode==13)alert(“enter!”);<br>151 键值对应表<br>152 A　　0X65 　U 　　0X85<br>153 B　　0X66　 V　　 0X86<br>154 C　　0X67　 W　　 0X87<br>155 D　　0X68　 X 　　0X88<br>156 E　　0X69　 Y　　 0X89<br>157 F　　0X70　 Z　　 0X90<br>158 G　　0X71　 0　　 0X48<br>159 H　　0X72　 1　　 0X49<br>160 I　　0X73　 2　　 0X50<br>161 J　　0X74　 3 　　0X51<br>162 K　　0X75　 4 　　0X52<br>163 L　　0X76　 5 　　0X53<br>164 M　　0X77　 6　　 0X54<br>165 N　　0X78 　7 　　0X55<br>166 O　　0X79 　8 　　0X56<br>167 P　　0X80 　9 　　0X57<br>168 Q　　0X81　ESC　　0X1B<br>169 R　　0X82　CTRL 　0X11<br>170 S　　0X83　SHIFT　0X10<br>171 T　　0X84　ENTER　0XD<br>172 如果要使用组合键，则可以判断是否同时按下了这几个键，比如ctrl键、shift键以及alt键的组合使用就可以判断是否多按下了ctrl键、shift键以及alt键</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
