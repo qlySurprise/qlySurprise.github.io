@@ -30,65 +30,89 @@
 </html>
 <body class="loading">
     <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">媒体查询条件判断顺序</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/who/" title="Whoami" target="_blank" rel="noopener">Whoami</a>
+        </li>
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://github.com/qlySurprise" title="Github" target="_blank" rel="noopener">Github</a>
+        </li>
+        
+        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://www.jianshu.com/u/a492d17e2e78" title="jianshu" target="_blank" rel="noopener">jianshu</a>
+        </li>
+        
+    </ul>
+    <p id="copyright">
+        &copy; 2019 qly.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
+        by Fechin
+    </p>
+</div>
+
+<div id="container">
+    
+<div id="screen">
+    <div id="mark">
+        <div class="layer" data-depth="0.4">
+            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
         </div>
     </div>
-    <div class="scrollbar"></div>
+    <div id="vibrant">
+        <svg viewbox="0 0 2880 1620" height="100%" preserveaspectratio="xMaxYMax slice">
+            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
+        </svg>
+        <div></div>
+    </div>
+    <div id="header">
+        <div>
+            <a class="image-logo" href="/"></a>
+            <div class="icon-menu switchmenu"></div>
+        </div>
+    </div>
+    
+    <div id="post0">
+        <p>一月 28, 2019</p>
+        <h2><a href="/2019/01/28/index/" title="好嗨哦" class="posttitle">好嗨哦</a></h2>
+        <p class="summary">
+
+
+    
+    
+    
+    
+    车匠在线
+    
+        document.doc...</p>
+    </div>
+    
 </div>
-    <div class="section">
-        <div class="article">
-    <div class="main">
-        <h1 class="title">媒体查询条件判断顺序</h1>
-        <div class="stuff">
-            <span>十一月 20, 2018</span>
-            
 
-        </div>
-        <div class="content markdown">
-            <p>当判断最小的值，并且从小到大进行判断（当满足条件的时候）；<br>1、向上兼容：如果设置了宽度更小时的样式，默认这些样式也会传递到宽度更大的条件范围；<br>2、向下覆盖：宽度更大的样式会将前面宽度更小的样式覆盖。</p>
-<p>书写建议：<br>1、如果判断最小值(min-width)，那么就应该从小到大写</p>
-<p>从小到大<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (min-width: 320px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 375px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
-<p>从大到小<br>2、如果判断最大值(max-width)，那么就应该从大到小写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width: 375px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 320px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
-                    
-                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
-                    
-                </ul>
-            
-        </div>
+    <div id="primary">
         
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+<div class="post">
+    <a href="/2016/11/12/死亡僚机/" title="死亡僚机">
+        <img src="https://goss1.veer.com/creative/vcg/veer/612/veer-133439981.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>十一月 12, 2016</p>
+        <h3><a href="/2016/11/12/死亡僚机/" title="死亡僚机" class="posttitle">死亡僚机</a></h3>
+        <p>你终于来了
+
+</p>
+    </div>
+</div>
 
 
     </div>
     
 </div>
+<div id="preview"></div>
 
-
-    </div>
-</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
