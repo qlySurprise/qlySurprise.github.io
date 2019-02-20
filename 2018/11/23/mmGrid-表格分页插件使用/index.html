@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="" class="loading">
+<html lang class="loading">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -11,16 +11,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="
-
-
-    
-    
-    
-    
-    车匠在线
-    
-        document.documentElement.style.fontSize = document.doc,"> 
+    <meta name="description" content="在windows下切换node版本-nvm - Nodejs的版本管理工具
+如果已经安装过node版本，请先自行卸载; 点击win10图标→设置→应用→应用和功能
+卸载完后直接下载nvm安装 (推荐,"> 
     <meta name="author" content="qly"> 
     <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -65,7 +58,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">    var cols = [</span><br><span class="line">        &#123;title: &apos;序列号&apos;, name: &apos;id&apos;, width: 40, align: &apos;left&apos;&#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;资源类型&apos;, name: &apos;type&apos;, width: 40, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val == &quot;1&quot;) &#123;</span><br><span class="line">                return &quot;图文&quot;;</span><br><span class="line">            &#125; else if (val == &quot;2&quot;) &#123;</span><br><span class="line">                return &quot;PDF&quot;;</span><br><span class="line">            &#125; else if (val == &quot;3&quot;) &#123;</span><br><span class="line">                return &quot;图片&quot;;</span><br><span class="line">            &#125; else if (val == &quot;4&quot;) &#123;</span><br><span class="line">                return &quot;MP4&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;title: &apos;标题&apos;, name: &apos;name&apos;, width: 200, align: &apos;left&apos;&#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;文件大小&apos;, name: &apos;filelength&apos;, width: 60, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val != null &amp;&amp; val != &apos;&apos;) &#123;</span><br><span class="line">                return val + &quot;KB&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;绑定标签&apos;, name: &apos;labels&apos;, width: 100, align: &apos;left&apos;, renderer: function (val, item) &#123;</span><br><span class="line">            if (val != null &amp;&amp; val != &apos;&apos;) &#123;</span><br><span class="line">                return val;</span><br><span class="line">            &#125;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            title: &apos;操作&apos;, name: &apos;&apos;, width: 300, align: &apos;center&apos;, lockWidth: true, lockDisplay: true,</span><br><span class="line">            renderer: function (val, item) &#123;</span><br><span class="line">                return &apos;&lt;button  class=&quot;btn btn-info&quot; onclick=&quot;showEdit(&apos; + item.id + &apos;,&apos; + item.type + &apos;)&quot;&gt;编辑&lt;/button&gt;&amp;nbsp;&amp;nbsp;&apos;</span><br><span class="line">                        + &apos;&lt;button  class=&quot;btn btn-danger&quot; onclick=&quot;deleteObj(&apos; + item.id + &apos;);&quot;&gt;删除&lt;/button&gt;&apos;</span><br><span class="line">//                        + &apos;&lt;button  class=&quot;btn btn-primary&quot; onclick=&quot;putTop(&apos; + item.id + &apos;)&quot;&gt;置顶&lt;/button&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ];</span><br><span class="line">    var tabGrid = Util.initGrid(&apos;/misc/metadata/listPage&apos;, cols, false, false, false);</span><br><span class="line">    Util.initParams(tabGrid, &quot;searchFormMetadata&quot;);</span><br><span class="line">    tabGrid.load();</span><br></pre></td></tr></table></figure>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
+                <source type="audio/mpeg" src>
             </audio>
             
                 <ul id="audio-list" style="display:none">
@@ -78,7 +71,7 @@
             
         </div>
         
-    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="" data-a="" data-d="false">查看评论</div>
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
 
 
     </div>
