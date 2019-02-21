@@ -11,9 +11,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="在windows下切换node版本-nvm - Nodejs的版本管理工具
-如果已经安装过node版本，请先自行卸载; 点击win10图标→设置→应用→应用和功能
-卸载完后直接下载nvm安装 (推荐,"> 
+    <meta name="description" content="
+
+
+    
+    
+    
+    
+    车匠在线
+    
+        document.documentElement.style.fontSize = document.doc,"> 
     <meta name="author" content="qly"> 
     <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -65,6 +72,41 @@
 <p>npm run serve</p>
 <p>在浏览器中打开“<a href="http://localhost:8080/”，一个初始化好的vue工程就完成了。" target="_blank" rel="noopener">http://localhost:8080/”，一个初始化好的vue工程就完成了。</a> </p>
 <p>三、使用GUI<br>通过vue ui命令可以在浏览器中直接打开 vue命令行工具的可视化界面。 </p>
+<p>public相当于原来的static，里面的index.html是项目的入口<br>src同以前</p>
+<p>cli3.0没有build和config了，<br>想要配置的话，需要在项目根目录下创建vue.config.js文件<br>(官方文档是这样de)<br>关于详细的配置信息，在此放一份 官方说明 供大家参考～</p>
+<p>module.exports = {<br>  // 项目部署的基础路径<br>  // 我们默认假设你的应用将会部署在域名的根部，<br>  // 比如 <a href="https://www.my-app.com/" target="_blank" rel="noopener">https://www.my-app.com/</a><br>  // 如果你的应用时部署在一个子路径下，那么你需要在这里<br>  // 指定子路径。比如，如果你的应用部署在<br>  // <a href="https://www.foobar.com/my-app/" target="_blank" rel="noopener">https://www.foobar.com/my-app/</a><br>  // 那么将这个值改为 <code>/my-app/</code><br>  baseUrl: ‘/‘,</p>
+<p>  // 将构建好的文件输出到哪里<br>  outputDir: ‘dist’,</p>
+<p>  // 是否在保存的时候使用 <code>eslint-loader</code> 进行检查。<br>  // 有效的值：<code>ture</code> | <code>false</code> | <code>&quot;error&quot;</code><br>  // 当设置为 <code>&quot;error&quot;</code> 时，检查出的错误会触发编译失败。<br>  lintOnSave: true,</p>
+<p>  // 使用带有浏览器内编译器的完整构建版本<br>  // 查阅 <a href="https://cn.vuejs.org/v2/guide/installation.html#运行时-编译器-vs-只包含运行时" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/installation.html#运行时-编译器-vs-只包含运行时</a><br>  compiler: false,</p>
+<p>  // 调整内部的 webpack 配置。<br>  // 查阅 <a href="https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md" target="_blank" rel="noopener">https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md</a><br>  chainWebpack: () =&gt; {},<br>  configureWebpack: () =&gt; {},</p>
+<p>  // vue-loader 选项<br>  // 查阅 <a href="https://vue-loader.vuejs.org/zh-cn/options.html" target="_blank" rel="noopener">https://vue-loader.vuejs.org/zh-cn/options.html</a><br>  vueLoader: {},</p>
+<p>  // 是否为生产环境构建生成 source map？<br>  productionSourceMap: true,</p>
+<p>  // CSS 相关选项<br>  css: {<br>    // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)<br>    extract: true,</p>
+<pre><code>// 是否开启 CSS source map？
+sourceMap: false,
+
+// 为预处理器的 loader 传递自定义选项。比如传递给
+// sass-loader 时，使用 `{ sass: { ... } }`。
+loaderOptions: {},
+
+// 为所有的 CSS 及其预处理文件开启 CSS Modules。
+// 这个选项不会影响 `*.vue` 文件。
+modules: false
+</code></pre><p>  },</p>
+<p>  // 在生产环境下为 Babel 和 TypeScript 使用 <code>thread-loader</code><br>  // 在多核机器下会默认开启。<br>  parallel: require(‘os’).cpus().length &gt; 1,</p>
+<p>  // 是否使用 <code>autoDLLPlugin</code> 分割供应的包？<br>  // 也可以是一个在 DLL 包中引入的依赖的显性的数组。<br>  // 查阅 <a href="https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#dll-模式" target="_blank" rel="noopener">https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#dll-模式</a><br>  dll: false,</p>
+<p>  // PWA 插件的选项。<br>  // 查阅 <a href="https://github.com/vuejs/vue-doc-zh-cn/vue-cli-plugin-pwa/README.md" target="_blank" rel="noopener">https://github.com/vuejs/vue-doc-zh-cn/vue-cli-plugin-pwa/README.md</a><br>  pwa: {},</p>
+<p>  // 配置 webpack-dev-server 行为。<br>  devServer: {<br>    open: process.platform === ‘darwin’,<br>    host: ‘0.0.0.0’,<br>    port: 8080,<br>    https: false,<br>    hotOnly: false,<br>    // 查阅 <a href="https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理" target="_blank" rel="noopener">https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理</a><br>    proxy: null, // string | Object<br>    before: app =&gt; {<br>      // <code>app</code> 是一个 express 实例<br>    }<br>  },</p>
+<p>  // 三方插件的选项<br>  pluginOptions: {<br>    // …<br>  }<br>}</p>
+<p>配置文件去哪了？</p>
+<p>node_modules-@vue-cli-service-bin-(vue-cli-service.js)<br>然后顺藤摸瓜，来看看这个～<br>Service.js<br>node_modules\@vue\cli-service\lib 下<br>loadUserOptions (inlineOptions) {<br>    // vue.config.js<br>    let fileConfig, pkgConfig, resolved, resovledFrom<br>    const configPath = (<br>      process.env.VUE_CLI_SERVICE_CONFIG_PATH ||<br>      path.resolve(this.context, ‘vue.config.js’)<br>    )<br>    if (fs.existsSync(configPath)) {<br>      try {<br>        fileConfig = require(configPath)<br>        if (!fileConfig || typeof fileConfig !== ‘object’) {<br>          error(<br>            <code>Error loading ${chalk.bold(&#39;vue.config.js&#39;)}: should export an object.</code><br>          )<br>          fileConfig = null<br>        }<br>      } catch (e) {<br>        error(<code>Error loading ${chalk.bold(&#39;vue.config.js&#39;)}:</code>)<br>        throw e<br>      }<br>    }<br>    ～vue-cli-service是默认配置，你在项目根目录创建一个vue.config.js，在这里面 配置，然后你的配置会被读取到合并进去的～</p>
+<p>   问题参考：</p>
+<pre><code>1. 如果我有三个环境，分别用不同的环境变量，要如何配置。就是做到不同的环境执行不同的命令就OK了？
+
+    ：参考vue.config.js编写配置文件，把启动命令添加到package.json即可。
+</code></pre><ol start="2">
+<li>怎么看cli3里面的webpack版本<br>   ：在package-lock.json文件里面</li>
+</ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
