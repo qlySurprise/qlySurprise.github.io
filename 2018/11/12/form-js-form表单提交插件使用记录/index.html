@@ -75,7 +75,35 @@ Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安�
 <p>resetForm<br>通过调用表单元素原有的DOM方法，将表单恢复到初始状态。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId’).resetForm();  </p>
 <p>clearForm<br>清除表单元素。该方法将所有的文本（text）输入字段、密码（password）输入字段和文本区域（textarea）字段置空，清除任何select元素中的选定，以及将所有的单选（radio）按钮和多选（checkbox）按钮重置为非选定状态。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId’).clearForm();  </p>
 <p>clearFields<br>清除字段元素。只有部分表单元素需要清除时才方便使用。 可链接（Chainable）：可以。<br>实例：<br>$(‘#myFormId .specialFields’).clearFields();  </p>
+<p>使用FormData对象<br>FormData对象是html5的一个对象，目前的一些主流的浏览器都已经兼容。额，如果你说ie8什么的，那我们还是来谈谈今天的天气吧，我没听见。呵呵，开个玩笑，不支持FormData的，可以使用方法二，下面会介绍。接着说FormData，它是一个html5的javascript对象，非常的强大。</p>
+<p>FormData可以凭空创建一个对象，然后往这个对象里面添加数据，然后直接提交，不需要写一行html代码，如下：</p>
+<pre><code>var form = new FormData();
+form.append(&quot;username&quot;,&quot;zxj&quot;);
+form.append(&quot;password&quot;,123456);
+var req = new XMLHttpRequest();
+req.open(&quot;post&quot;, &quot;${pageContext.request.contextPath}/public/testupload&quot;, false);
+req.send(form);
+</code></pre><p>这样就可以向浏览器发送表单数据了，或者也可以使用Jquery这样发送：</p>
+<p> var form = new FormData();<br>  form.append(“username”,”zxj”);<br>  form.append(“password”,123456);<br>　$.ajax({<br>                url:”${pageContext.request.contextPath}/public/testupload”,<br>                type:”post”,<br>                data:form,<br>                processData:false,<br>                contentType:false,<br>                success:function(data){<br>                    window.clearInterval(timer);<br>                    console.log(“over..”);<br>                }<br>});</p>
+<p>这样也可以直接发送数据到后台。</p>
+<p>其次FormData还支持直接从html中的表单生成数据，就是在html页面中已经有数据了，然后FormData可以直接把这个表单的数据写入这个对象，然后直接提交给后台</p>
+<p>代码如下，先给出html代码:</p>
+<form id="tf"><br>            <input type="file" name="img"><br>            <input type="text" name="username"><br>            <input type="button" value="提" onclick="test();"><br>                        ………….<br> </form>
 
+<p>大家注意到没有，里面可是有文件的哦！</p>
+<p>没错，FormData还支持困扰众多开发者已久的ajax的上传文件，以前我们上传文件，需要写一个表单直接刷新提交，但是这里不需要，下面给出提交代码：</p>
+<pre><code>function test(){
+    var form = new FormData(document.getElementById(&quot;tf&quot;));
+</code></pre><p>//             var req = new XMLHttpRequest();<br>//             req.open(“post”, “${pageContext.request.contextPath}/public/testupload”, false);<br>//             req.send(form);<br>            $.ajax({<br>                url:”${pageContext.request.contextPath}/public/testupload”,<br>                type:”post”,<br>                data:form,<br>                processData:false,<br>                contentType:false,<br>                success:function(data){<br>                    window.clearInterval(timer);<br>                    console.log(“over..”);<br>                },<br>                error:function(e){<br>                    alert(“错误！！”);<br>                    window.clearInterval(timer);<br>                }<br>            });<br>            get();//此处为上传文件的进度条<br>        }</p>
+<p>就是这么简单，使用FormData，在构造这个对象的时候，把表单的对象，作为一个参数放进去，就可以了，然后FormData，就会得到这个表单对象里面的所有的参数，甚至我们在表单中，都不需要声明enctype =”multipart/form-data” ，就可以直接提交。</p>
+<p>使用FormData，第一是在提交表单的时候，不需要写大量的js来获得表单数据，直接把表单对象构造就行了。第二就是可以直接异步上传文件，简单牛逼爆了！</p>
+<p>注意：使用FormData提交的时候，大家会注意到表单提交的是request payload，具体有兴趣的同学可以自己百度，它不是之前的Form data提交的，所以后台也是要经过处理的，比如springMVC就需要配置</p>
+<!-- 配置nultipartresolver,注意：id名必须这样写，不然会报错 -->
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
+    &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;maxInMemorySize&quot; value=&quot;10240000&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src>
