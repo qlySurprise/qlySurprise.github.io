@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>好嗨哦</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="关于旧版本
+Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall v,"> 
+    <meta name="author" content="qly"> 
+    <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">'封装记录搜索历史功能'</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">'封装记录搜索历史功能'</h1>
+        <div class="stuff">
+            <span>三月 29, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>//!*封装添加搜索记录功能  (newRecord:str,当参数为空时为获取历史记录，当参数不为空时为存搜索记录; num:记录数，默认为12条;)<br>    function addHisRecord(newRecord, num){<br>        num = num || 5;<br>        //获取本地存储的记录<br>        var hisRecord_str = window.localStorage.getItem(‘hisRecora_str’);<br>        //当获取到的值为null时，创建一个空数组存储进去<br>        if(typeof hisRecord_str == ‘object’){<br>            var hisRecord = [];<br>            hisRecord_str = hisRecord.join(‘|’);<br>            window.localStorage.setItem(‘hisRecora_str’, hisRecord_str);<br>        }<br>        //转换为数组<br>        hisRecord = hisRecord_str.split(‘|’);<br>        //当hisRecord_str为空字符串时，清空数组<br>        if( !hisRecord_str ){<br>            hisRecord.pop();<br>        }<br>        //当实参不为空时，判断：<br>        if( newRecord ){<br>            //1.当该数组中不存在传进来的值时，则添加新记录到首位;<br>            if( hisRecord.indexOf(newRecord) == -1 ){<br>                hisRecord.unshift(newRecord);<br>                //当记录小于 num 条时，添加到首位，当大于等于 num 条时，添加到首位并删掉末位<br>                if( hisRecord.length &gt; num ){<br>                    hisRecord.pop();<br>                }<br>            }else{<br>                //2.当该数组中存在传进来的值时，则删掉对应位置的记录并添加新记录到首位;<br>                var indexRecord = hisRecord.indexOf(newRecord);<br>                hisRecord.splice( indexRecord, 1);<br>                hisRecord.unshift(newRecord);<br>            }<br>            //重新转换成string存储到本地<br>            hisRecord_str = hisRecord.join(‘|’);<br>            window.localStorage.setItem(‘hisRecora_str’, hisRecord_str);<br>        }else{//当实参为空时，返回获取到的历史记录，type: Array;<br>            return hisRecord;<br>        }<br>    }<br>    调用放进页面<br>        var val = $(‘#keyword’).val();<br>        addHisRecord(val);<br>        var arr = window.localStorage.getItem(‘hisRecora_str’);<br>        var newArr =  arr.split(‘|’)<br>        console.log(newArr);<br>//        mui.toast(newArr);<br>//        alert点击内容<br>        var html = ‘’;</p>
+<pre><code>for(var i = 0;i&lt;newArr.length;i++){
+
+    html += &apos;&lt;li onclick=inpVal(\&apos;&apos;+newArr[i]+&apos;\&apos;)&gt;&apos;+newArr[i]+&apos;&lt;/li&gt;&apos;;
+}
+$(&apos;#guzhangma&apos;).html(html);
+</code></pre>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
