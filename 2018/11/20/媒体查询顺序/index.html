@@ -11,7 +11,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="//!*封装添加搜索记录功能  (newRecord:str,当参数为空时为获取历史记录，当参数不为空时为存搜索记录; num:记录数，默认为12条;)    function addHisReco,"> 
+    <meta name="description" content="功能实现
+采用form的onsubmit方法实现，也就是表单提交下边直接上代码                                                            ,"> 
     <meta name="author" content="qly"> 
     <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -54,6 +55,7 @@
 <p>书写建议：<br>1、如果判断最小值(min-width)，那么就应该从小到大写</p>
 <p>从小到大<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (min-width: 320px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (min-width: 375px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
 <p>从大到小<br>2、如果判断最大值(max-width)，那么就应该从大到小写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width: 375px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 360px) &#123; 样式 &#125;</span><br><span class="line">@media screen and (max-width: 320px) &#123; 样式 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、 指定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
