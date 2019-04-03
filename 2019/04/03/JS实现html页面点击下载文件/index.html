@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">浏览器优化-缓存</h3>
+    <h3 class="subtitle">JS实现html页面点击下载文件</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,54 +43,28 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">浏览器优化-缓存</h1>
+        <h1 class="title">JS实现html页面点击下载文件</h1>
         <div class="stuff">
-            <span>十一月 02, 2018</span>
+            <span>四月 03, 2019</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/知识笔记/">知识笔记</a></li></ul>
-
 
         </div>
         <div class="content markdown">
-            <p>设置max-age|expires进行优化网站</p>
-<p>网页的缓存是由 HTTP 消息头中的 “Cache-control” 来控制的，常见的取值有 private、no-cache、max-age、must-revalidate 等，默认为private。其作用根据不同的重新浏览方式分为以下几种情况：</p>
-<p>（1） 打开新窗口</p>
-<p>如果指定cache-control的值为private、no-cache、must-revalidate，那么打开新窗口访问时都会重新访问服务器。而如果指定了max-age值，那么在此值内的时间里就不会重新访问服务器，例如：</p>
-<p>Cache-control: max-age=5<br>表示当访问此网页后的5秒内再次访问不会去服务器。</p>
-<p>（2） 在地址栏回车</p>
-<p>如果值为private或must-revalidate（和网上说的不一样），则只有第一次访问时会访问服务器，以后就不再访问。如果值为no-cache，那么每次都会访问。如果值为max-age，则在过期之前不会重复访问。</p>
-<p>（3） 按后退按扭</p>
-<p>如果值为private、must-revalidate、max-age，则不会重访问，而如果为no-cache，则每次都重复访问</p>
-<p>（4） 按刷新按扭</p>
-<p>无论为何值，都会重复访问</p>
-<p>当指定Cache-control值为“no-cache”时，访问此页面不会在Internet临时文章夹留下页面备份。</p>
-<p>另外，通过指定“Expires”值也会影响到缓存。例如，指定Expires值为一个早已过去的时间，那么访问此网时若重复在地址栏按回车，那么每次都会重复访问：</p>
-<p>Expires: Fri, 31 Dec 1999 16:00:00 GMT</p>
-<p>在ASP中，可以通过Response对象的Expires、ExpiresAbsolute属性控制Expires值；通过Response对象的CacheControl属性控制Cache-control的值，例如：</p>
-<p>Response.ExpiresAbsolute = #2000-1-1# ‘ 指定绝对的过期时间，这个时间用的是服务器当地时间，会被自动转换为GMT时间<br>Response.Expires = 20  ‘ 指定相对的过期时间，以分钟为单位，表示从当前时间起过多少分钟过期。<br>Response.CacheControl = “no-cache”<br>Expires值是可以通过在Internet临时文件夹中查看临时文件的属性看到的。</p>
-<p>Apache 主机解决方案：</p>
-<p>Apache 设置缓存可以通过 mod_headers 模块修改 cache-control 来实现。</p>
-<p>header set cache-control “max-age=”3600”。<br>mod_expires 实例：</p>
-<p>&lt;Directory /opt&gt;<br>ExpiresActive On<br>ExpiresDefault “accesss plus 3600 seconds”   如果是1秒,后面也是seconds<br>ExpiresByType application/octet-stream “accesss plus 1 months”  这是对特殊文件类型bin缓存1个月</p>
-<filesmatch ^data.swf$> 针对opt目录下data.swf设置Expire值<br>ExpiresActive On<br>ExpiresDefault “accesss plus 60 seconds”<br></filesmatch><br><br>mod_headers 实例：<br><br>&lt;Directory /opt&gt;<br>header set cache-control “max-age=3600”<br><filesmatch ^data.swf$><br>header set cache-control “max-age=60”<br></filesmatch><br><br><filesmatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$"><br>Header set Cache-Control “max-age=2592000”<br></filesmatch>
-
-
-<p>Nginx 主机解决方案：</p>
-<p>Nginx 的 ngx_http_headers_module 模块可以对 Cache-Control 头相关的东西进行配置，例如：</p>
-<p>if ($request_uri ~<em> “^/$|^/search/.+/|^/company/.+/“) {<br>add_header Cache-Control max-age=3600;<br>}<br>if ($request_uri ~</em> “^/search-suggest/|^/categories/“) {<br>add_header Cache-Control max-age=86400;<br>}<br>expires 的设置方法，增加至主机 conf 文件中：</p>
-<p>location ~ .<em>.(gif|jpg|jpeg|png|bmp|swf)$<br>{<br>expires 30d;<br>}<br>location ~</em> .(ico|gif|jpg|jpeg|png|bmp|swf)(\?[0-9]+)?$<br>{<br>expires max;<br>break;<br>}</p>
-<p>通过 HTTP 的 META 设置 expires 和 cache-control 解决方案：</p>
-<ol>
-<li>尖括号 meta http-equiv=”Cache-Control” content=”max-age=7200” /尖括号</li>
-<li><p>尖括号 meta http-equiv=”Expires” content=”Mon, 18 Aug 2014 23:00:00 GMT” /尖括号<br>expires 用于设定网页的过期时间，也可设置为：</p>
-<ol>
-<li>尖括号meta http-equiv=”Cache-Control” CONTENT=”no-cache” /尖括号</li>
-<li>尖括号meta http-equiv=”Expires” content=”0” /尖括号</li>
-</ol>
-</li>
-</ol>
-<p>CSS 中图片、字体及 JS 的 max_age 解决方案：</p>
-<p>background-image:url(sprite/bg.png?max_age=31536000&amp;d=05231747)<br>格式为?d=月日小时分钟，其他文件如此类推。</p>
+            <p>共两种实现方法：</p>
+<p>1.使用<a>标签来完成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;/user/test/xxxx.txt&quot; download=&quot;文件名.txt&quot;&gt;点击下载&lt;/a&gt;</span><br></pre></td></tr></table></figure></a></p>
+<p>这样当用户打开浏览器点击链接的时候就会直接下载文件。</p>
+<p>但是有个情况，比如txt,png,jpg等这些浏览器支持直接打开的文件是不会执行下载任务的，而是会直接打开文件，这个时候就需要给a标签添加一个属性“download”;</p>
+<p>以下为例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		 &lt;a href=&quot;http://171.188.96.**:****/d/c833945c11/files/?p=/plugins.maintain.CheckLinePartTask/cebab687-6dc5-4128-b7d9-8bc2fe369598.png&amp;raw=1&quot; </span><br><span class="line">		 		download=&quot;test.png&quot;&gt;点击下载&lt;/a&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其中download后面的属性是下载后文件的文件名字</p>
+<p>若需从网页上传的图片中进行下载  可能会用到以下方法</p>
+<p>获取主机域名：</p>
+<p>location.hostname</p>
+<p>获取端口号：</p>
+<p>location.port</p>
+<p>2.使用按钮进行监听<br>按钮监听又可以分为两种方法，</p>
+<p>一是window.open()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var $eleBtn1 = $(&quot;#btn1&quot;);</span><br><span class="line">        var $eleBtn2 = $(&quot;#btn2&quot;);</span><br><span class="line"> </span><br><span class="line">        //已知一个下载文件的后端接口：https://codeload.github.com/douban/douban-client/legacy.zip/master</span><br><span class="line">        //方法一：window.open()</span><br><span class="line">        $eleBtn1.click(function()&#123;</span><br><span class="line">            window.open(&quot;https://codeload.github.com/douban/douban-client/legacy.zip/master&quot;);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>二是表单提交</p>
+<p>//方法二：通过form<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$eleBtn2.click(function()&#123;</span><br><span class="line">    var $eleForm = $(&quot;&lt;form method=&apos;get&apos;&gt;&lt;/form&gt;&quot;);</span><br><span class="line"> </span><br><span class="line">    $eleForm.attr(&quot;action&quot;,&quot;https://codeload.github.com/douban/douban-client/legacy.zip/master&quot;);</span><br><span class="line"> </span><br><span class="line">    $(document.body).append($eleForm);</span><br><span class="line"> </span><br><span class="line">    //提交表单，实现下载</span><br><span class="line">    $eleForm.submit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
