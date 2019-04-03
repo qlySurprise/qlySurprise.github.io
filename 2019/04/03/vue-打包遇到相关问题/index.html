@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>好嗨哦</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="功能实现
+采用form的onsubmit方法实现，也就是表单提交下边直接上代码                                                            ,"> 
+    <meta name="author" content="qly"> 
+    <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">vue 打包遇到相关问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">vue 打包遇到相关问题</h1>
+        <div class="stuff">
+            <span>四月 03, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>vue项目如何打包扔向服务器<br>Vue应用部署到服务器的正确方式<br>当我们将 vue 项目完成后，面临的就是如何将项目进行打包上线，放到服务器中。我使用的是 vue-cli（simple） 脚手架，所以就讲一下如何将项目进行打包</p>
+<p>如何打包<br>基于Vue-Cli,通过npm run build来进行打包的操作<br>如何部署<br>将打包出来的资源，基于Vue-Cli的一般是dist目录下有static目录和index.html文件，可以直接将这两个文件扔到服务端<br>但有时候，我们会直接将dist文件扔到服务端<br>出现问题</p>
+<p>打包到服务器后，出现资源引用路径的问题<br>打包到服务器后，出现空白页的问题<br>打包到服务器后，出现引入的css的type被拦截转换为”text/plain”<br>问题打包到服务器后，出现路由刷新404的问题<br>出现资源引用路径的解决方案<br>一般这个问题是由于在webpack配置打包发布的目录造成的。<br>情况一.如果是将static与index.html直接放在服务器根目录,，如:<a href="http://www.xxx.com" target="_blank" rel="noopener">http://www.xxx.com</a><br>配置输出的publiPath:”/“或者”./“<br>情况二.直接将打包后的dist文件放在了服务器的根目录，如:<a href="http://www.xxx.com/dist" target="_blank" rel="noopener">http://www.xxx.com/dist</a></p>
+<p>//首先需要在创建路由实例中增加：</p>
+<p>const router = new VueRouter({<br>    mode: ‘history’,<br>    base: ‘/dist’,<br>    routes<br>});<br>// 然后再打包发布目录:<br>// publiPath:”/dist/“或者”<a href="http://www.xxx.com/dist/&quot;" target="_blank" rel="noopener">http://www.xxx.com/dist/&quot;</a>    </p>
+<p>在新的脚手架里面其实已经区分了生产和本地环境的assetsPublicPath<br>build: {<br>    env: require(‘./prod.env’),<br>    index: path.resolve(<strong>dirname, ‘../dist/index.html’),<br>    assetsRoot: path.resolve(</strong>dirname, ‘../dist’),<br>    assetsSubDirectory: ‘static’,<br>    assetsPublicPath: ‘/XXX/‘,  // 项目发布的二级目录<br>    …<br>  },<br>  dev: {<br>    env: require(‘./dev.env’),<br>    port: 8080,<br>    assetsSubDirectory: ‘static’,<br>    assetsPublicPath: ‘/‘,<br>    …<br>  }</p>
+<p>下面是vue cli默认webpack config／index.js的配置解释</p>
+<p>var path = require(‘path’)</p>
+<p> 3 module.exports = {<br> 4   build: { // production 环境<br> 5     env: require(‘./prod.env’), // 使用 config/prod.env.js 中定义的编译环境<br> 6     index: path.resolve(<strong>dirname, ‘../dist/index.html’), // 编译输入的 index.html 文件<br> 7     assetsRoot: path.resolve(</strong>dirname, ‘../dist’), // 编译输出的静态资源路径<br> 8     assetsSubDirectory: ‘static’, // 编译输出的二级目录<br> 9     assetsPublicPath: ‘/‘, // 编译发布的根目录，可配置为资源服务器域名或 CDN 域名<br>10     productionSourceMap: true, // 是否开启 cssSourceMap<br>11     // Gzip off by default as many popular static hosts such as<br>12     // Surge or Netlify already gzip all static assets for you.<br>13     // Before setting to <code>true</code>, make sure to:<br>14     // npm install –save-dev compression-webpack-plugin<br>15     productionGzip: false, // 是否开启 gzip<br>16     productionGzipExtensions: [‘js’, ‘css’] // 需要使用 gzip 压缩的文件扩展名<br>17   },<br>18   dev: { // dev 环境<br>19     env: require(‘./dev.env’), // 使用 config/dev.env.js 中定义的编译环境<br>20     port: 8080, // 运行测试页面的端口<br>21     assetsSubDirectory: ‘static’, // 编译输出的二级目录<br>22     assetsPublicPath: ‘/‘, // 编译发布的根目录，可配置为资源服务器域名或 CDN 域名<br>23     proxyTable: {}, // 需要 proxyTable 代理的接口（可跨域）<br>24     // CSS Sourcemaps off by default because relative paths are “buggy”<br>25     // with this option, according to the CSS-Loader README<br>26     // (<a href="https://github.com/webpack/css-loader#sourcemaps" target="_blank" rel="noopener">https://github.com/webpack/css-loader#sourcemaps</a>)<br>27     // In our experience, they generally work as expected,<br>28     // just be aware of this issue when enabling this option.<br>29     cssSourceMap: false // 是否开启 cssSourceMap<br>30   }<br>31 }</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

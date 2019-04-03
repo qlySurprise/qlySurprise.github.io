@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>好嗨哦</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="功能实现
+采用form的onsubmit方法实现，也就是表单提交下边直接上代码                                                            ,"> 
+    <meta name="author" content="qly"> 
+    <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">安装webpack，一些报错问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">安装webpack，一些报错问题</h1>
+        <div class="stuff">
+            <span>四月 01, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>安装webpack  报One CLI for webpack must be installed. These are recommended choices……</p>
+<p>解决方案依然是需要全局安装webpack-cli<br>如下：<br>npm -i webpack-cli -g  或者 npm install webpack-cli<br>在项目里再做一个本地安装：<br>npm -i webpack -D 或者 npm install webpack -D</p>
+<p>webpack 报错 找不到时<br>webpack ./src/index.js –output ./dist/bundle.js –mode development</p>
+<p>CSS分离:extract-text-webpack-plugin报错时<br>webpack使用extract-text-webpack-plugin打包时提示错误Use Chunks.groupsIterable and filter by instanceof Entryp</p>
+<p>前提条件：<br>当前时间是2018年4月20日。<br>webpack的最新版本为是 v4.6.0<br>extract-text-webpack-plugin 当前通过install默认安装到的版本是v3.0.2</p>
+<p>问题描述<br>使用extract-text-webpack-plugin在打包是提示错误</p>
+<p>(node:12712) DeprecationWarning: Tapable.plugin is deprecated. Use new API on <code>.hooks</code> instead<br>    E:***\myproject\webpack-vue-elementUi\node_modules\webpack\lib\Chunk.js:460<br>                    throw new Error(<br>                    ^</p>
+<pre><code>Error: Chunk.entrypoints: Use Chunks.groupsIterable and filter by instanceof Entrypoint instead
+    at Chunk.get (E:\***\myproject\webpack-vue-elementUi\node_modules\webpack\lib\Chunk.js:460:9)
+    at E:\***\myproject\webpack-vue-elementUi\node_modules\extract-text-webpack-plugin\dist\index.js:176:48
+    at Array.forEach (&lt;anonymous&gt;)
+    at E:\***\myproject\webpack-vue-elementUi\node_modules\extract-text-webpack-plugin\dist\index.js:171:18
+</code></pre><p>问题分析<br>看官网也有这个问题，extract-text-webpack-plugin还不能支持webpack4.0.0以上的版本。有个这样的描述<br>这里写图片描述<br>既然出现这个问题了，那基本上你用的webpack版本一定是4.0.0以上的了。<br>查看下package.json里</p>
+<p>“devDependencies”: {<br>    …<br>    “extract-text-webpack-plugin”: “^3.0.2”,<br>    “html-webpack-plugin”: “^3.2.0”,<br>    “postcss-loader”: “^2.1.4”,<br>    “style-loader”: “^0.21.0”,<br>    “webpack”: “^4.6.0”,<br>    …<br>  },</p>
+<p>解决办法<br>npm install –save-dev extract-text-webpack-plugin@next<br>会下载到+ <a href="mailto:extract-text-webpack-plugin@4.0.0-beta.0" target="_blank" rel="noopener">extract-text-webpack-plugin@4.0.0-beta.0</a><br>然后在打包就正常了</p>
+<p>“devDependencies”: {<br>    …<br>    “extract-text-webpack-plugin”: “^4.0.0-beta.0”,<br>    “html-webpack-plugin”: “^3.2.0”,<br>    “postcss-loader”: “^2.1.4”,<br>    “style-loader”: “^0.21.0”,<br>    “webpack”: “^4.6.0”,<br>     …<br>  }</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

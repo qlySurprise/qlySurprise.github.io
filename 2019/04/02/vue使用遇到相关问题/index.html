@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>好嗨哦</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="功能实现
+采用form的onsubmit方法实现，也就是表单提交下边直接上代码                                                            ,"> 
+    <meta name="author" content="qly"> 
+    <link rel="alternative" href="atom.xml" title="好嗨哦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">vue2.x使用遇到相关问题</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">vue2.x使用遇到相关问题</h1>
+        <div class="stuff">
+            <span>四月 02, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>vue——解决“You may use special comments to disable some warnings. Use // eslint-disable-next-line to ignore the next line. Use /<em> eslint-disable </em>/ to ignore all warnings in a file. ”</p>
+<p>在build/webpack.base.conf.js文件中，注释或者删除掉：module-&gt;rules中有关eslint的规则<br>module: {<br>  rules: [<br>    //…(config.dev.useEslint ? [createLintingRule()] : []), // 注释或者删除<br>    {<br>      test: /.vue$/,<br>      loader: ‘vue-loader‘,<br>      options: vueLoaderConfig<br>    },<br>    …<br>    }<br>  ]<br>}</p>
+<h2 id="然后-nmp-run-dev-就能正常运行了"><a href="#然后-nmp-run-dev-就能正常运行了" class="headerlink" title="然后 nmp run dev 就能正常运行了"></a>然后 nmp run dev 就能正常运行了</h2><p>npm install时报错 npm ERR！Windows_NT 6.1.7601<br>解决办法：先设置代理为空 npm config set proxy null， 然后再npm install cnpm -g –registry=<a href="https://registry.npm.taobao.org！" target="_blank" rel="noopener">https://registry.npm.taobao.org！</a></p>
+<p>#2017.3.31 14:17<br>今年又安装新环境来着，然后发现淘宝的这个也不好用了，一番查询之后，据说是淘宝的不再支持了，然后换成腾讯的，果然就好了，一用淘宝的，好像是<br>证书还是connect错误，不太记得了。<br>腾讯链接<a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">https://gems.ruby-china.org/</a><br>我还遇到一个问题就是执行gem sources –add <a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">https://gems.ruby-china.org/</a> –remove <a href="https://rubygems.org/的时候报错，看到文章底部" target="_blank" rel="noopener">https://rubygems.org/的时候报错，看到文章底部</a><br>我也去掉s，解决。</p>
+<h2 id="有的情况是不用s会出错。。。"><a href="#有的情况是不用s会出错。。。" class="headerlink" title="有的情况是不用s会出错。。。"></a>有的情况是不用s会出错。。。</h2><p>vue项目安装依赖包报错：Downloading <a href="https://chromedriver.storage.googleapis.com/2.27/chromedriver_mac64.zip" target="_blank" rel="noopener">https://chromedriver.storage.googleapis.com/2.27/chromedriver_mac64.zip</a></p>
+<p>然后我就发现，在某些版本下，Chromedriver的zip文件URL的响应是302跳转，但是在install.js里面使用的是node.js内置的http对象的get方法，无法处理302跳转的情况。但在另一种情况下，则是googleleapis.com被墙了而已。这个时候正常上网也是没有办法去获取文件的。但是不管是那种情况，只用如下的安装命令安装完成之后，就可以继续执行npm i 或者其他的依赖包下载方式。</p>
+<h2 id="npm-install-chromedriver-–chromedriver-cdnurl-http-cdn-npm-taobao-org-dist-chromedriver"><a href="#npm-install-chromedriver-–chromedriver-cdnurl-http-cdn-npm-taobao-org-dist-chromedriver" class="headerlink" title="npm install chromedriver –chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver"></a>npm install chromedriver –chromedriver_cdnurl=<a href="http://cdn.npm.taobao.org/dist/chromedriver" target="_blank" rel="noopener">http://cdn.npm.taobao.org/dist/chromedriver</a></h2><p>Vue 引入ElementUI 2.0.11:依赖未发现的问题<br>问题说明：<br>引入Element-UI后,在项目中使用:<br>App.vue中引入<br> import Vue from ‘vue’<br> import Element from ‘element-ui’<br> import ‘element-ui/lib/theme-default/index.css’<br> Vue.use(Element);<br>然后在运行的时候报错:</p>
+<p>ERROR Failed to compile with 1 errors 09:10:39<br>This dependency was not found:<br>element-ui/lib/theme-default/index.css in ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&amp;index=0!./src/App.vue<br>To install it, you can run: npm install –save element-ui/lib/theme-default/index.css</p>
+<p>解决方法<br>这对我一个刚刚入门vue的新手来说,太难受了.好在找到了解决方法,原来,ElementUI在这个版本,index.css已经不在theme-default里了,而是在theme-chalk里.所以把上面的</p>
+<p> import ‘element-ui/lib/theme-default/index.css’<br>改为<br> import ‘element-ui/lib/theme-chalk/index.css’</p>
+<h2 id="即可"><a href="#即可" class="headerlink" title="即可."></a>即可.</h2><p>(Emitted value instead of an instance of Error) the “scope” attribute for scoped slots have been deprecated and replaced by “slot-scope” since 2.5.<br>The new “slot-scope” attribute can also be used on plain elements in addition to <template> to denote scoped slots.</template></p>
+<p><template scope="xxx">yyyyyyyy</template><br>改成</p>
+<h2 id="yyyyyyyy"><a href="#yyyyyyyy" class="headerlink" title="yyyyyyyy"></a><template slot-scope="xxx">yyyyyyyy</template></h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
