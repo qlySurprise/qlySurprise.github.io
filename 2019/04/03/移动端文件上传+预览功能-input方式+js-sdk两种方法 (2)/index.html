@@ -27,7 +27,7 @@ var clientHeight = document.body.clientHeight;    v,">
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">移动端文件上传</h3>
+    <h3 class="subtitle">移动端文件上传+预览功能-input方式+js-sdk两种方法</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -44,7 +44,7 @@ var clientHeight = document.body.clientHeight;    v,">
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">移动端文件上传</h1>
+        <h1 class="title">移动端文件上传+预览功能-input方式+js-sdk两种方法</h1>
         <div class="stuff">
             <span>四月 03, 2019</span>
             
@@ -57,12 +57,7 @@ var clientHeight = document.body.clientHeight;    v,">
 <p>2.input(type=“file”)控件与file&amp;FileList对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; accept=&quot;image/*” multiple id=“file&quot;/&gt;</span><br><span class="line">见上述代码：</span><br></pre></td></tr></table></figure></p>
 <p>multiple：表示file控件允许一次放置多个文件<br>accept：用来让input只能接受某种类型的文件，但是目前主流浏览器对其的支持都只局限于打开文件选择窗口时，默认选择图片文件而已，如果其他类型文件，file控件也能正常接受。</p>
 <p>3.FileReader接口</p>
-<p>Filereader接口主要用于读取文件，把文件读入内存，并且读取文件中的数据，FileReader接口提供了一个异步接口(用于在浏览器主线程中异步访问文件系统)，浏览器对FileReader的能力检测代码如下：</p>
-<p>if(typeof FileReader == undefined) {</p>
-<pre><code>div.innerHTML = &quot;不支持filereader&quot;;
-</code></pre><p>}else{</p>
-<pre><code>div.innerHTML = &quot;FileReader is ok”;
-</code></pre><p>}</p>
+<p>Filereader接口主要用于读取文件，把文件读入内存，并且读取文件中的数据，FileReader接口提供了一个异步接口(用于在浏览器主线程中异步访问文件系统)，浏览器对FileReader的能力检测代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(typeof FileReader == undefined) &#123;</span><br><span class="line"></span><br><span class="line">    div.innerHTML = &quot;不支持filereader&quot;;</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">    div.innerHTML = &quot;FileReader is ok”;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>FileReader的方法</p>
 <p>readAsDataURL:将文件读取为DataURL(base64最为常见)</p>
 <p>FileReader的状态</p>
